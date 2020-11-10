@@ -1,0 +1,112 @@
+.task-wrapper {
+  display: flex;
+  padding: 2rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  background-color: white;
+  align-items: center;
+}
+
+.task-wrapper.important {
+  animation: glow 0.5s both linear alternate-reverse infinite;
+}
+
+.task-text {
+  font-size: 1.5rem;
+  flex-grow: 3;
+  overflow: hidden;
+}
+
+.task-title {
+  padding: 0 0.5rem;
+  background-color: rgba(255, 217, 0, 0.8);
+}
+
+.task-date {
+  font-weight: 600;
+}
+
+.task-wrapper button {
+  width: 10rem;
+  font-family: 'Raleway', sans-serif;
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
+  min-width: 10rem;
+  margin: 0 2rem;
+  padding: 0.5rem;
+  font-size: 2rem;
+  background-color: rgb(255, 217, 0);
+  border: 1px solid rgb(255, 187, 0);
+  border-radius: 5px;
+  box-shadow: 0 0 4px rgb(255, 187, 0);
+  font-weight: 400;
+  cursor: pointer;
+  outline: none;
+  transition: 0.3s;
+}
+
+.task-wrapper button:hover {
+  background-color: rgba(255, 217, 0, 0.6);
+}
+
+.task-wrapper.important.deleted,
+.deleted {
+  animation: fade 3s both;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
+  }
+
+  to {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+
+  10% {
+    opacity: 0.9;
+  }
+
+  20% {
+    opacity: 0.8;
+  }
+
+  30% {
+    opacity: 0.7;
+  }
+
+  40% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  60% {
+    opacity: 0.4;
+  }
+
+  70% {
+    opacity: 0.3;
+  }
+
+  80% {
+    opacity: 0.2;
+  }
+
+  90% {
+    opacity: 0.1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

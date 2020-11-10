@@ -1,0 +1,18 @@
+.tasklist-wrapper {
+  padding: 22rem 6rem 0 18rem;
+  margin: 0 auto;
+  max-width: 100rem;
+  height: 100%;
+}
+
+.tasks-title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.tasks-info {
+  font-size: 2rem;
+  padding-top: 3rem;
+  text-align: center;
+}

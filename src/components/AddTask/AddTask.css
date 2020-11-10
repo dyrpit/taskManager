@@ -1,0 +1,116 @@
+.menu-wrapper {
+  position: fixed;
+  padding: 2rem 3rem;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.2);
+  min-height: 20rem;
+  max-height: 20rem;
+  width: 100%;
+}
+
+.form-title {
+  font-size: 4rem;
+  padding: 2rem 0;
+  margin-bottom: 1rem;
+}
+
+.form-wrapper {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.input-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.warning {
+  font-size: 1.5rem;
+  background-color: rgba(255, 0, 0, 0.514);
+  padding: 0.5rem;
+  border: 1px solid red;
+  border-radius: 5px;
+  color: white;
+}
+
+input {
+  font-size: 2rem;
+  margin: 0 1rem;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: 'Raleway', sans-serif;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+label {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+input[type='text'] {
+  width: 35rem;
+  padding: 1rem;
+}
+
+input[type='date'] {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+input[type='checkbox'] {
+  position: relative;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 2rem;
+  width: 2rem;
+  border: 1px solid rgb(255, 187, 0);
+  border-radius: 5px;
+}
+
+input[type='checkbox']:checked {
+  border: 1px solid rgb(255, 187, 0);
+  background-color: rgb(255, 217, 0);
+}
+
+input[type='checkbox']:checked::after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 10px;
+  position: absolute;
+  top: 3px;
+  left: 7px;
+  border: 1px solid black;
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(40deg);
+}
+
+input:focus {
+  box-shadow: 0 0 6px 1px rgb(0, 0, 0, 0.2);
+}
+
+button[type='submit'] {
+  min-width: 10rem;
+  margin: 0 2rem;
+  padding: 0.5rem;
+  font-size: 2rem;
+  background-color: rgb(255, 217, 0);
+  border: 1px solid rgb(255, 187, 0);
+  border-radius: 5px;
+  box-shadow: 0 0 4px rgb(255, 187, 0);
+  font-weight: 400;
+  font-family: 'Raleway', sans-serif;
+  cursor: pointer;
+  outline: none;
+  transition: 0.3s;
+}
+
+button[type='submit']:hover {
+  background-color: rgba(255, 217, 0, 0.6);
+}
