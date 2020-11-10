@@ -11,12 +11,13 @@ html {
 }
 
 body {
+  min-height: 100vh;
   font-family: 'Raleway', sans-serif;
   overflow-x: hidden;
 }
 
 #root {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   background-color: rgb(255, 217, 0);
 }
