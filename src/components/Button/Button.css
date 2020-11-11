@@ -1,0 +1,54 @@
+.primary {
+  min-width: 10rem;
+  margin: 0 1rem;
+  padding: 0.5rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  background-color: var(--primaryColor);
+  border: 1px solid var(--secondaryColor);
+  border-radius: 5px;
+  box-shadow: 0 0 4px var(--secondaryColor);
+  cursor: pointer;
+  outline: none;
+  text-transform: capitalize;
+  transition: 0.3s;
+}
+
+.primary:hover {
+  background-color: var(--hoverColor);
+}
+
+.sidebar {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 3rem;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: 0.3s;
+}
+
+.sidebar:not([DISABLED])::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6rem;
+  border-bottom: 2px solid var(--secondaryColor);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.sidebar:hover::after {
+  opacity: 1;
+}
+
+.sidebar:disabled,
+.primary:disabled {
+  cursor: not-allowed;
+}

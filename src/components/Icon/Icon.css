@@ -1,0 +1,60 @@
+.far {
+  font-size: 3rem;
+  margin: 0 1rem;
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltiptext {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 10rem;
+  padding: 0.5rem;
+  background-color: black;
+  font-size: 1.5rem;
+  color: #fff;
+  border-radius: 4px;
+  text-align: center;
+  visibility: hidden;
+  z-index: 1;
+  opacity: 0;
+  transition: 1s;
+}
+
+.tooltiparrow {
+  position: absolute;
+  left: 50%;
+  top: 108%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid black;
+  visibility: hidden;
+  z-index: 1;
+  opacity: 0;
+  transition: 1s;
+}
+
+.tooltip:hover .tooltiptext,
+.tooltip:hover .tooltiparrow {
+  visibility: visible;
+  opacity: 1;
+}
+
+.fa-frown {
+  color: var(--warningColor);
+}
+
+.fa-smile {
+  color: green;
+}
+
+.fa-meh {
+  color: var(--secondaryColor);
+}

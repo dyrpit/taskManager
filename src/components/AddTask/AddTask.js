@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+
+import Button from '../Button/Button';
+import Input from '../Input/Input';
+
 import './AddTask.css';
 
 class AddTask extends Component {
@@ -49,7 +53,7 @@ class AddTask extends Component {
         error: '',
       });
 
-      this.props.switchList('active');
+      this.props.switchList(true);
     } else {
       this.setState({
         error: 'Write task first',
@@ -62,36 +66,25 @@ class AddTask extends Component {
       <div className='menu-wrapper'>
         <h1 className='form-title'>Add your task</h1>
         <form className='form-wrapper' noValidate>
-          <div className='input-wrapper'>
-            <input
-              type='text'
-              placeholder='Add task'
-              value={this.state.text}
-              onChange={this.handleInputChange}
-            ></input>
-            {this.state.error && <p className='warning'>{this.state.error}</p>}
-          </div>
-          <div className='input-wrapper'>
-            <input
-              type='date'
-              min={this.state.date}
-              max={`${Number(this.state.date.substring(0, 4)) + 1}-12-31`}
-              value={this.state.date}
-              onChange={this.handleInputChange}
-            ></input>
-          </div>
-          <div className='input-wrapper'>
-            <input
-              id='important'
-              type='checkbox'
-              checked={this.state.important}
-              onChange={this.handleInputChange}
-            ></input>
-            <label htmlFor='important'>Important</label>
-          </div>
-          <button type='submit' onClick={this.handleSubmitButton}>
-            Add task
-          </button>
+          <Input
+            type='text'
+            value={this.state.text}
+            onChangeHandler={(e) => this.handleInputChange(e)}
+            error={this.state.error}
+          />
+          <Input
+            type='date'
+            value={this.state.date}
+            onChangeHandler={(e) => this.handleInputChange(e)}
+            min={this.state.date}
+            max={`${Number(this.state.date.substring(0, 4)) + 1}-12-31`}
+          />
+          <Input
+            type='checkbox'
+            checked={this.state.important}
+            onChangeHandler={(e) => this.handleInputChange(e)}
+          />
+          <Button title='Add Task' onClickHandler={(e) => this.handleSubmitButton(e)} />
         </form>
       </div>
     );

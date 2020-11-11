@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+
+import Button from '../Button/Button';
+import Icon from '../Icon/Icon';
+
 import './Task.css';
 
 const Task = ({ task, deleteTask, setDoneTask }) => {
@@ -21,16 +25,17 @@ const Task = ({ task, deleteTask, setDoneTask }) => {
             <span className='task-title'>"{task.text}"</span> - do until:{' '}
             <em className='task-date'>{task.date}</em>
           </p>
-          <button onClick={() => setDoneTask(task.id)}>Done</button>
-          <button onClick={handleDelete}>X</button>
+          <Icon date={task.date} />
+          <Button title='done' onClickHandler={() => setDoneTask(task.id)} isDisabled={deleted} />
+          <Button title='x' onClickHandler={handleDelete} isDisabled={deleted} />
         </div>
       ) : (
-        <div className={`task-wrapper ${importantClass} ${deletedClass}`}>
+        <div className={`task-wrapper ${deletedClass}`}>
           <p className='task-text'>
             <span className='task-title'>"{task.text}"</span> - Done:{' '}
             <em className='task-date'>{task.endDate}</em>
           </p>
-          <button onClick={handleDelete}>X</button>
+          <Button title='x' onClickHandler={handleDelete} isDisabled={deleted} />
         </div>
       )}
     </>

@@ -1,0 +1,74 @@
+.input-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.warning {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  color: white;
+  background-color: var(--warningColor);
+  border: 1px solid red;
+  border-radius: 5px;
+}
+
+input {
+  margin: 0 1rem;
+  font-size: 2rem;
+  font-family: 'Raleway', sans-serif;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  transition: 0.3s;
+}
+
+label {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+input[type='text'] {
+  width: 35rem;
+  padding: 1rem;
+}
+
+input[type='date'] {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+input[type='checkbox'] {
+  position: relative;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 2rem;
+  width: 2rem;
+  border: 1px solid var(--secondaryColor);
+  border-radius: 5px;
+}
+
+input[type='checkbox']:checked {
+  border: 1px solid var(--secondaryColor);
+  background-color: var(--primaryColor);
+}
+
+input[type='checkbox']:checked::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 5px;
+  height: 10px;
+  top: 3px;
+  left: 7px;
+  border: 1px solid black;
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(40deg);
+}
+
+input:focus {
+  box-shadow: 0 0 6px 1px rgb(0, 0, 0, 0.2);
+}

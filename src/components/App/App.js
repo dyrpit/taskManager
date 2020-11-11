@@ -4,10 +4,12 @@ import AddTask from '../AddTask/AddTask';
 import SideBar from '../SideBar/SideBar';
 import TaskList from '../TaskList/TaskList';
 
+import { LOCALSTORAGE_KEY } from '../../constants/storageConstants';
+
 class App extends Component {
   state = {
     tasks: [],
-    show: 'active',
+    show: true,
   };
 
   addTask = (task) => {
@@ -48,7 +50,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    const dataFromLocalStorage = localStorage.getItem('tasks');
+    const dataFromLocalStorage = localStorage.getItem(LOCALSTORAGE_KEY);
     if (dataFromLocalStorage) {
       this.setState({
         tasks: JSON.parse(dataFromLocalStorage),
@@ -57,7 +59,7 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
+    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(this.state.tasks));
   }
 
   render() {
