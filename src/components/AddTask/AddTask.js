@@ -64,7 +64,7 @@ class AddTask extends Component {
   render() {
     return (
       <div className='menu-wrapper'>
-        <h1 className='form-title'>Add your task</h1>
+        <h1 className='form-title'>Tasks Manager</h1>
         <form className='form-wrapper' noValidate>
           <Input
             type='text'

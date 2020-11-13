@@ -1,5 +1,5 @@
 .primary {
-  min-width: 10rem;
+  min-width: 8rem;
   margin: 0 1rem;
   padding: 0.5rem;
   font-family: 'Raleway', sans-serif;
@@ -15,7 +15,8 @@
   transition: 0.3s;
 }
 
-.primary:hover {
+.primary:hover,
+.close:hover {
   background-color: var(--hoverColor);
 }
 
@@ -51,4 +52,24 @@
 .sidebar:disabled,
 .primary:disabled {
   cursor: not-allowed;
+}
+
+.close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background-color: var(--primaryColor);
+  border: 1px solid var(--secondaryColor);
+  border-radius: 50%;
+  box-shadow: 0 0 4px var(--secondaryColor);
+  cursor: pointer;
+  outline: none;
+  text-transform: capitalize;
+  text-align: center;
+  transition: 0.3s;
 }

@@ -3,7 +3,7 @@ import './TaskList.css';
 
 import Task from '../Task/Task';
 
-const TaskList = ({ tasks, deleteTask, setDoneTask, show }) => {
+const TaskList = ({ addTask, deleteTask, setDoneTask, setUndoneTask, show, tasks }) => {
   if (show) {
     tasks = tasks.filter((task) => task.active);
   } else {
@@ -17,7 +17,14 @@ const TaskList = ({ tasks, deleteTask, setDoneTask, show }) => {
           <h2 className='tasks-title'>{show ? 'Active tasks' : 'Done tasks'}</h2>
           {!tasks.length ? <h3 className='tasks-info'>No tasks yet..</h3> : null}
           {tasks.map((task) => (
-            <Task key={task.id} task={task} deleteTask={deleteTask} setDoneTask={setDoneTask} />
+            <Task
+              key={task.id}
+              task={task}
+              addTask={addTask}
+              deleteTask={deleteTask}
+              setDoneTask={setDoneTask}
+              setUndoneTask={setUndoneTask}
+            />
           ))}
         </div>
       </div>

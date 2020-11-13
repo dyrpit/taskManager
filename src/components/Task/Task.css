@@ -1,4 +1,5 @@
 .task-wrapper {
+  position: relative;
   display: flex;
   padding: 2rem;
   margin-bottom: 2rem;

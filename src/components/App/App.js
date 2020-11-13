@@ -13,11 +13,26 @@ class App extends Component {
   };
 
   addTask = (task) => {
-    const tasks = [...this.state.tasks, task];
+    const index = this.state.tasks.findIndex((item) => item.id === task.id);
 
-    this.setState({
-      tasks,
-    });
+    if (index > -1) {
+      const tasks = this.state.tasks.map((item) => {
+        if (item.id === task.id) {
+          return task;
+        }
+        return item;
+      });
+
+      this.setState({
+        tasks,
+      });
+    } else {
+      const tasks = [...this.state.tasks, task];
+
+      this.setState({
+        tasks,
+      });
+    }
   };
 
   deleteTask = (id) => {
@@ -35,6 +50,21 @@ class App extends Component {
       if (task.id === id) {
         task.active = false;
         task.endDate = date.substring(0, 10) + ' ' + date.substring(11, 19);
+      }
+    });
+
+    this.setState({
+      tasks,
+    });
+  };
+
+  setUndoneTask = (id) => {
+    const tasks = [...this.state.tasks];
+
+    tasks.forEach((task) => {
+      if (task.id === id) {
+        task.active = true;
+        task.endDate = '';
       }
     });
 
@@ -72,8 +102,10 @@ class App extends Component {
         <TaskList
           tasks={tasks}
           show={show}
+          addTask={this.addTask}
           deleteTask={this.deleteTask}
           setDoneTask={this.setDoneTask}
+          setUndoneTask={this.setUndoneTask}
         />
       </>
     );

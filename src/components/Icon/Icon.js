@@ -8,11 +8,14 @@ const Icon = ({ date }) => {
   const day = 1000 * 60 * 60 * 24;
 
   const result = endDateTime - currentTime;
-  const daysLeft = Math.ceil(result / day);
+  let daysLeft = Math.ceil(result / day);
   let icon = '';
+  let text = 'days left';
 
   if (daysLeft < 0) {
     icon = <i class='far fa-frown'></i>;
+    daysLeft = Math.abs(daysLeft);
+    text = 'days after deadline';
   } else if (daysLeft > 0) {
     icon = <i class='far fa-smile'></i>;
   } else {
@@ -22,7 +25,9 @@ const Icon = ({ date }) => {
   return (
     <div className='tooltip'>
       {icon}
-      <div className='tooltiptext'>{daysLeft} days left</div>
+      <div className='tooltiptext'>
+        {daysLeft} {text}
+      </div>
       <div className='tooltiparrow'></div>
     </div>
   );

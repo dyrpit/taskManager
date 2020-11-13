@@ -6,7 +6,13 @@ const Input = ({ type, value, onChangeHandler, error, min, max, checked }) => {
   const inputs = {
     text: (
       <>
-        <input type='text' placeholder='Add task' value={value} onChange={onChangeHandler}></input>
+        <input
+          type='text'
+          id='text'
+          placeholder='Add task'
+          value={value}
+          onChange={onChangeHandler}
+        ></input>
         {error && <p className='warning'>{error}</p>}
       </>
     ),
@@ -25,8 +31,8 @@ const Input = ({ type, value, onChangeHandler, error, min, max, checked }) => {
     ),
     checkbox: (
       <>
-        <input id='checkbox' type='checkbox' checked={checked} onChange={onChangeHandler}></input>
-        <label htmlFor='checkbox'>Important</label>
+        <input id='important' type='checkbox' checked={checked} onChange={onChangeHandler}></input>
+        <label>Important</label>
       </>
     ),
   };
