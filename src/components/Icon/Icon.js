@@ -13,13 +13,13 @@ const Icon = ({ date }) => {
   let text = 'days left';
 
   if (daysLeft < 0) {
-    icon = <i class='far fa-frown'></i>;
+    icon = <i className='far fa-frown'></i>;
     daysLeft = Math.abs(daysLeft);
     text = 'days after deadline';
   } else if (daysLeft > 0) {
-    icon = <i class='far fa-smile'></i>;
+    icon = <i className='far fa-smile'></i>;
   } else {
-    icon = <i class='far fa-meh'></i>;
+    icon = <i className='far fa-meh'></i>;
   }
 
   return (

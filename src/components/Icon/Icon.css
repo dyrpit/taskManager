@@ -1,5 +1,5 @@
 .far {
-  font-size: 3rem;
+  font-size: 2rem;
   margin: 0 1rem;
 }
 
@@ -9,7 +9,7 @@
 
 .tooltiptext {
   position: absolute;
-  top: 75%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, 50%);
   min-width: 18rem;

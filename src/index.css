@@ -31,3 +31,7 @@ body {
   background-color: rgb(255, 217, 0);
   position: absolute;
 }
+
+body.disable-scroll {
+  overflow-y: hidden;
+}

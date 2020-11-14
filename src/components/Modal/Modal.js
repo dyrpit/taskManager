@@ -18,13 +18,15 @@ const Modal = ({ addTask, handleModalOpen, isOpen, task }) => {
     const { value, id } = e.target;
 
     if (id === 'important') {
-      setState({
+      setState((prevState) => ({
+        ...prevState,
         [id]: !state.important,
-      });
+      }));
     } else {
-      setState({
+      setState((prevState) => ({
+        ...prevState,
         [id]: value,
-      });
+      }));
     }
   };
 
@@ -42,11 +44,15 @@ const Modal = ({ addTask, handleModalOpen, isOpen, task }) => {
       endDate: '',
     };
 
-    if (text) {
+    if (task.text !== text && text) {
       newTask.text = text;
-    } else if (date) {
+    }
+
+    if (task.date !== date && date) {
       newTask.date = date;
-    } else if (task.important !== important) {
+    }
+
+    if (task.important !== important) {
       newTask.important = important;
     }
 

@@ -25,6 +25,8 @@ const Task = ({ addTask, deleteTask, setDoneTask, setUndoneTask, task }) => {
   };
 
   const handleModalOpen = () => {
+    const [body] = [...document.getElementsByTagName('body')];
+    body.classList.toggle('disable-scroll');
     setOpen((prevState) => !prevState);
   };
 
