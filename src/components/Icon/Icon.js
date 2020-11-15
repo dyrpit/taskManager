@@ -2,13 +2,10 @@ import React from 'react';
 
 import './Icon.css';
 
-const Icon = ({ date }) => {
-  const endDateTime = new Date(date).getTime();
-  const currentTime = Date.now();
-  const day = 1000 * 60 * 60 * 24;
+import { getLeftDays } from '../../services/sortService';
 
-  const result = endDateTime - currentTime;
-  let daysLeft = Math.ceil(result / day);
+const Icon = ({ date }) => {
+  let daysLeft = getLeftDays(date);
   let icon = '';
   let text = 'days left';
 

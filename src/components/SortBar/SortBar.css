@@ -1,0 +1,97 @@
+.sortbar-tooltip {
+  position: fixed;
+  top: 21rem;
+  right: 2rem;
+  width: 0;
+  height: 0;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+.sortbar-pin-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+}
+
+.sortbar-pin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.sortbar-pin:nth-child(1) {
+  left: 0;
+  transform: translate(calc(-50% + 0.25rem), -50%);
+}
+
+.sortbar-pin:nth-child(2) {
+  left: 50%;
+}
+
+.sortbar-pin:nth-child(3) {
+  left: 100%;
+  transform: translate(calc(-50% - 0.25rem), -50%);
+}
+
+.sortbar-content-wrapper {
+  display: none;
+}
+
+.sortbar-content-wrapper.open {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.sortbar-tooltip.open {
+  width: 15rem;
+  height: 30rem;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.open .sortbar-pin {
+  width: 1.5rem;
+  height: 0.2rem;
+  border-radius: 0;
+}
+
+.open .sortbar-pin:nth-child(1) {
+  left: 25%;
+  transform: rotate(45deg);
+}
+
+.open .sortbar-pin:nth-child(2) {
+  display: none;
+}
+
+.open .sortbar-pin:nth-child(3) {
+  transform: rotate(-45deg);
+  left: 25%;
+}
+
+input[type='text'].sortbar-input {
+  width: 10rem;
+  height: 2.5rem;
+  padding: 0;
+  font-size: 1.2rem;
+  border: none;
+  border-bottom: 1px solid black;
+  border-radius: 0;
+}
+
+input[type='text'].sortbar-input:focus {
+  box-shadow: unset;
+}

@@ -6,13 +6,13 @@ import Modal from '../Modal/Modal';
 
 import './Task.css';
 
-const Task = ({ addTask, deleteTask, setDoneTask, setUndoneTask, task }) => {
+const Task = ({ addTask, deleteTask, index, setDoneTask, setUndoneTask, task }) => {
   const [deleted, setDeleted] = useState(false);
   const [open, setOpen] = useState(false);
 
   const { active, important } = task;
 
-  const importantClass = important ? 'important' : '';
+  const importantClass = important && active ? 'important' : '';
   const deletedClass = deleted ? 'deleted' : '';
 
   const handleDeleteButton = () => {
@@ -24,7 +24,7 @@ const Task = ({ addTask, deleteTask, setDoneTask, setUndoneTask, task }) => {
     setDoneTask(task.id);
   };
 
-  const handleModalOpen = () => {
+  const handleToggleModal = () => {
     const [body] = [...document.getElementsByTagName('body')];
     body.classList.toggle('disable-scroll');
     setOpen((prevState) => !prevState);
@@ -36,33 +36,35 @@ const Task = ({ addTask, deleteTask, setDoneTask, setUndoneTask, task }) => {
 
   return (
     <>
-      <Modal isOpen={open} handleModalOpen={handleModalOpen} task={task} addTask={addTask} />
-      {active ? (
-        <div className={`task-wrapper ${importantClass} ${deletedClass}`}>
-          <p className='task-text'>
-            <span className='task-title'>"{task.text}"</span> - do until:{' '}
-            <em className='task-date'>{task.date}</em>
-          </p>
-          <Icon date={task.date} />
-          <Button title='done' onClickHandler={handleDoneButton} isDisabled={deleted} />
-          <Button title='edit' onClickHandler={handleModalOpen} isDisabled={deleted} />
-          <Button
-            title='x'
-            onClickHandler={handleDeleteButton}
-            buttonStyle='close'
-            isDisabled={deleted}
-          />
-        </div>
-      ) : (
-        <div className={`task-wrapper ${deletedClass}`}>
-          <p className='task-text'>
-            <span className='task-title'>"{task.text}"</span> - Done:{' '}
-            <em className='task-date'>{task.endDate}</em>
-          </p>
-          <Button title='undone' onClickHandler={handleUndoneTask} />
-          <Button title='x' onClickHandler={handleDeleteButton} isDisabled={deleted} />
-        </div>
+      {open && (
+        <Modal isOpen={open} handleModalOpen={handleToggleModal} task={task} addTask={addTask} />
       )}
+
+      <div className={`task-wrapper ${importantClass} ${deletedClass}`}>
+        <span className='task-index'>{index + 1}</span>
+        <p className='task-text'>
+          <span className='task-title'>"{task.text}"</span>
+          <span>{active ? ' - do until: ' : ' - Done: '}</span>
+          <em className='task-date'>{active ? `${task.date} ` : `${task.endDate}`}</em>
+        </p>
+        {active ? (
+          <>
+            <Icon date={task.date} />
+            <Button title='done' onClickHandler={handleDoneButton} isDisabled={deleted} />
+            <Button title='edit' onClickHandler={handleToggleModal} isDisabled={deleted} />
+          </>
+        ) : (
+          <>
+            <Button title='undone' onClickHandler={handleUndoneTask} />
+          </>
+        )}
+        <Button
+          title='x'
+          onClickHandler={handleDeleteButton}
+          buttonStyle='close'
+          isDisabled={deleted}
+        />
+      </div>
     </>
   );
 };

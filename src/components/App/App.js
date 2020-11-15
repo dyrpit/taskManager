@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 
 import AddTask from '../AddTask/AddTask';
 import SideBar from '../SideBar/SideBar';
+import SortBar from '../SortBar/SortBar';
 import TaskList from '../TaskList/TaskList';
 
 import { LOCALSTORAGE_KEY } from '../../constants/storageConstants';
+
+import { searchTaskByName, tasksSortBy } from '../../services/sortService';
 
 class App extends Component {
   state = {
     tasks: [],
     show: true,
+    filtered: [],
   };
 
   addTask = (task) => {
@@ -25,12 +29,14 @@ class App extends Component {
 
       this.setState({
         tasks,
+        filtered: tasks,
       });
     } else {
       const tasks = [...this.state.tasks, task];
 
       this.setState({
         tasks,
+        filtered: tasks,
       });
     }
   };
@@ -39,6 +45,15 @@ class App extends Component {
     const tasks = this.state.tasks.filter((task) => task.id !== id);
     this.setState({
       tasks,
+      filtered: tasks,
+    });
+  };
+
+  searchTask = (text) => {
+    const filtered = searchTaskByName(this.state.tasks, text);
+
+    this.setState({
+      filtered,
     });
   };
 
@@ -55,6 +70,7 @@ class App extends Component {
 
     this.setState({
       tasks,
+      filtered: tasks,
     });
   };
 
@@ -70,6 +86,15 @@ class App extends Component {
 
     this.setState({
       tasks,
+      filtered: tasks,
+    });
+  };
+
+  sortTasks = (sortValue, sortDirection) => {
+    const tasks = tasksSortBy(this.state.filtered, sortValue, sortDirection);
+
+    this.setState({
+      filtered: tasks,
     });
   };
 
@@ -84,6 +109,7 @@ class App extends Component {
     if (dataFromLocalStorage) {
       this.setState({
         tasks: JSON.parse(dataFromLocalStorage),
+        filtered: JSON.parse(dataFromLocalStorage),
       });
     }
   }
@@ -93,14 +119,15 @@ class App extends Component {
   }
 
   render() {
-    const { show, tasks } = this.state;
+    const { show, filtered } = this.state;
 
     return (
       <>
         <AddTask addTask={this.addTask} switchList={this.switchList} />
         <SideBar switchList={this.switchList} show={show} />
+        <SortBar sortTasks={this.sortTasks} searchTask={this.searchTask} />
         <TaskList
-          tasks={tasks}
+          tasks={filtered}
           show={show}
           addTask={this.addTask}
           deleteTask={this.deleteTask}

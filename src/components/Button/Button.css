@@ -73,3 +73,21 @@
   text-align: center;
   transition: 0.3s;
 }
+
+.sortbar {
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-family: 'Raleway', sans-serif;
+  background-color: var(--primaryColor);
+  border: 1px solid var(--secondaryColor);
+  border-radius: 5px;
+  box-shadow: 0 0 4px var(--secondaryColor);
+  cursor: pointer;
+  outline: none;
+  text-transform: capitalize;
+  transition: 0.3s;
+}
+
+.sortbar:hover {
+  background-color: var(--hoverColor);
+}

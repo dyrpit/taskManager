@@ -16,9 +16,10 @@ const TaskList = ({ addTask, deleteTask, setDoneTask, setUndoneTask, show, tasks
         <div className='tasks-wrapper'>
           <h2 className='tasks-title'>{show ? 'Active tasks' : 'Done tasks'}</h2>
           {!tasks.length ? <h3 className='tasks-info'>No tasks yet..</h3> : null}
-          {tasks.map((task) => (
+          {tasks.map((task, index) => (
             <Task
               key={task.id}
+              index={index}
               task={task}
               addTask={addTask}
               deleteTask={deleteTask}

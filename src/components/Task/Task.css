@@ -13,6 +13,14 @@
   animation: glow 0.5s both linear alternate-reverse infinite;
 }
 
+.task-index {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
 .task-text {
   font-size: 1.5rem;
   flex-grow: 3;
